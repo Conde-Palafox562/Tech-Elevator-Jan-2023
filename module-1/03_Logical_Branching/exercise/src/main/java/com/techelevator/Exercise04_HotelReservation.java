@@ -26,7 +26,16 @@ public class Exercise04_HotelReservation {
     calculateStayTotal(3) ➔ 269.97
      */
     public double calculateStayTotal(int numberOfNights) {
-        return 0.0;
+        // if they're saying one night or two nights then return 99.99 * number of nights
+        if (numberOfNights <= 2) {
+            return DAILY_RATE * numberOfNights;
+        }
+
+        // else 89.99 for three nights or more
+        else {
+            return DISCOUNT_RATE * numberOfNights;
+        }
+
     }
 
     /*
@@ -41,7 +50,15 @@ public class Exercise04_HotelReservation {
     calculateStayTotal(3, true) ➔ 344.97
      */
     public double calculateStayTotal(int numOfTotalNights, boolean includesParking) {
-        return 0.0;
+        // determine how much their stay is based on numOfTotalNights
+        double cost = calculateStayTotal(numOfTotalNights);
+
+        //check if includes parking. If so, charge 25 per night
+        if (includesParking) {
+            return cost + PARKING_RATE * numOfTotalNights;
+        }
+
+        return cost;
     }
 
     /*
@@ -61,6 +78,12 @@ public class Exercise04_HotelReservation {
     calculateStayTotal(3, true, true) ➔ 364.97
      */
     public double calculateStayTotal(int numOfTotalNights, boolean includesParking, boolean includesLateCheckout) {
-        return 0.0;
+
+            double cost = calculateStayTotal(numOfTotalNights, includesParking);
+
+            if (includesLateCheckout) {
+                return cost + LATE_CHECKOUT_FEE;
+            }
+            return cost;
+        }
     }
-}
