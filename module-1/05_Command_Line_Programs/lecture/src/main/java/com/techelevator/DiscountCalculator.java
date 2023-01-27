@@ -9,7 +9,7 @@ class DiscountCalculator {
      */
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
 
         System.out.println("Welcome to the Discount Calculator");
 
@@ -17,14 +17,34 @@ class DiscountCalculator {
         // The answer needs to be saved as a double
         System.out.print("Enter the discount amount (w/out percentage): ");
 
+        String discountAmountStr = input.nextLine();
+
+        // To convert the string we got from the console to a double value
+        // we can Double.parseDouble. If we had wanted an int we could have done
+        // Integer.parseInt(discountAmountStr)
+
+        double discountAmount = Double.parseDouble(discountAmountStr);
 
 
         // Prompt the user for a series of prices
         System.out.print("Please provide a series of prices (space separated): ");
 
+        String priceStr = input.nextLine();
+
+        //If we want to take that string and convert into an array of prices:
+        String[] prices = priceStr.split(" ");
+
+        for(int i = 0; i < prices.length; i++) {
+
+            double price = Double.parseDouble (price[i] /100)
+            double discountPrice = price - (price * discountAmount);
+
+            System.out.println("Our original price " + price + " is now discounted to " + discountPrice);
+
+        }
 
 
-
+        System.out.println("Finished");
 
 
     }
