@@ -23,7 +23,7 @@ class DiscountCalculator {
         // we can Double.parseDouble. If we had wanted an int we could have done
         // Integer.parseInt(discountAmountStr)
 
-        double discountAmount = Double.parseDouble(discountAmountStr);
+        double discountAmount = Double.parseDouble(discountAmountStr)/100; //divided by 100 to get the fraction;
 
 
         // Prompt the user for a series of prices
@@ -36,7 +36,7 @@ class DiscountCalculator {
 
         for(int i = 0; i < prices.length; i++) {
 
-            double price = Double.parseDouble (price[i] /100)
+            double price = Double.parseDouble( prices[i] );
             double discountPrice = price - (price * discountAmount);
 
             System.out.println("Our original price " + price + " is now discounted to " + discountPrice);

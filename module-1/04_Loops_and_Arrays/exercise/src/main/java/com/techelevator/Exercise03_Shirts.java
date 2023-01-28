@@ -18,8 +18,9 @@ public class Exercise03_Shirts {
      */
     public char[] buildOrder() {
 
-        //char[] newOrder = new char[]
-        return new char[] {};
+        char[] newOrder = new char[]
+                {SMALL_TSHIRT,SMALL_TSHIRT,SMALL_TSHIRT,MEDIUM_TSHIRT,MEDIUM_TSHIRT,LARGE_TSHIRT};
+        return newOrder;
     }
 
     /*
