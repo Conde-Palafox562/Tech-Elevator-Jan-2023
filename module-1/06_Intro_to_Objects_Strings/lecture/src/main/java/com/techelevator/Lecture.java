@@ -15,13 +15,32 @@ public class Lecture {
 
 		/* create an new instance of String using a literal */
 
-		
+		String animal = "cat";
+		String pet = "dog";
+
 		System.out.println();
 		System.out.println("******************************");
 		System.out.println("****** MEMBER METHODS ******");
 		System.out.println("******************************");
 		System.out.println();
 
+
+		String company = "Tech Elevator";
+
+		boolean endsWithElevator = company.endsWith("Elevator");
+		System.out.println("Ends with Elevator: " + endsWithElevator);
+
+		boolean endswithTech = company.endsWith("Tech");
+		System.out.println("Ends with Tech: " + endswithTech);
+
+		boolean endsWithTor = company.endsWith("tor");
+		System.out.println("Ends with tor: " + endsWithTor);
+
+		boolean startsWithT = company.startsWith("T");
+		System.out.println("Starts with T: " + startsWithT);
+
+		int indexOfFirstInstance = company.indexOf("e");
+		System.out.println("Index of e: " + indexOfFirstInstance);
 
 		/* Other commonly used methods:
 		 *
