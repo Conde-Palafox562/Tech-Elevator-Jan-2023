@@ -267,14 +267,15 @@ public class Exercises {
 	 hasBad("xxbadxx") → false
 	 */
 	public boolean hasBad(String str) {
-
 		if (str.length() > 2) {
 			if (str.substring(0, 3).equals("bad")) {
 				return true;
 			}
+		}
 
-			if( str.length() > 3) {
-				if (str.substring(1, 4).equals("bad")) return true;
+		if (str.length() > 3) {
+			if (str.substring(1, 4).equals("bad")) {
+				return true;
 			}
 		}
 		return false;
@@ -287,7 +288,12 @@ public class Exercises {
 	 stringTimes("Hi", 1) → "Hi"
 	 */
 	public String stringTimes(String str, int n) {
-		return null;
+
+			String holder = "";
+			for (; n > 0; n--) {
+				holder += str;
+			}
+			return holder;
 	}
 
 	/*
@@ -298,7 +304,12 @@ public class Exercises {
 	 frontTimes("Abc", 3) → "AbcAbcAbc"
 	 */
 	public String frontTimes(String str, int n) {
-		return null;
+			String new3;
+			String new4 = "";
+			if (str.length() < 3) new3 = str;
+			else new3 = str.substring(0,  3);
+			for (; n > 0; n--) new4 += new3;
+			return new4;
 	}
 
 	/*
@@ -308,7 +319,14 @@ public class Exercises {
 	 countXX("xxxx") →
 	 */
 	public int countXX(String str) {
-		return 0;
+		int x = 0;
+		for (int i = 0; i < str.length()-1; i++) {
+			String string = str.substring(i,i+2);
+			if (string.equals("xx")) {
+				x += 1;
+			}
+		}
+		return x;
 	}
 
 	/*
@@ -318,6 +336,10 @@ public class Exercises {
 	 doubleX("xxxxx") → true
 	 */
 	public boolean doubleX(String str) {
+		int xIndex = str.indexOf("x");
+		if (xIndex < str.length() - 1) {
+			if (str.charAt(xIndex + 1) == 'x') return true;
+		}
 		return false;
 	}
 
@@ -328,7 +350,15 @@ public class Exercises {
 	 stringBits("Heeololeo") → "Hello"
 	 */
 	public String stringBits(String str) {
-		return null;
+		String myStr = "";
+		for (int i = 0 ; i < str.length() ; i++) {
+			if (i % 2 == 0) {
+				myStr += str.charAt(i);
+			}
+
+		}
+
+		return myStr;
 	}
 
 	/*
@@ -338,7 +368,14 @@ public class Exercises {
 	 stringSplosion("ab") → "aab"
 	 */
 	public String stringSplosion(String str) {
-		return null;
+		String result = "";
+		for (int i = 0 ; i < str.length() ; i++) {
+
+			result = result + str.substring(0, i + 1);
+		}
+
+
+		return result;
 	}
 
 	/*
@@ -349,7 +386,19 @@ public class Exercises {
 	 last2("axxxaaxx") → 2
 	 */
 	public int last2(String str) {
-		return 0;
+
+		if (str.length() < 2) {
+			return 0;
+		}
+		String end = str.substring(str.length() - 2);
+		int count = 0;
+		for (int i = 0 ; i < str.length() - 2 ; i++) {
+			String partialStr = str.substring(i, i+2);
+			if (partialStr.equals(end)) {
+				count++;
+			}
+		}
+		return count;
 	}
 
 	/*
@@ -360,7 +409,16 @@ public class Exercises {
 	 stringX("xabxxxcdx") → "xabcdx"
 	 */
 	public String stringX(String str) {
-		return null;
+		if (str.length() < 2) {
+			return str;
+		}
+
+		String firstChar = str.substring(0, 1);
+		String lastChar = str.substring(str.length() - 1);
+		String midStr = str.substring(1, str.length() - 1);
+
+		midStr = midStr.replaceAll("x", "");
+		return firstChar + midStr + lastChar;
 	}
 
 	/*
@@ -370,7 +428,17 @@ public class Exercises {
 	 altPairs("CodingHorror") → "Congrr"
 	 */
 	public String altPairs(String str) {
-		return null;
+		String result = "";
+
+		for (int i=0; i<str.length(); i += 4) {
+			int end = i + 2;
+			if (end > str.length()) {
+				end = str.length();
+			}
+			result = result + str.substring(i, end);
+		}
+
+		return result;
 	}
 
 	/*
@@ -381,7 +449,7 @@ public class Exercises {
 	 stringYak("yak123ya") → "123ya"
 	 */
 	public String stringYak(String str) {
-		return null;
+		return str.replaceAll("yak","");
 	}
 
 }

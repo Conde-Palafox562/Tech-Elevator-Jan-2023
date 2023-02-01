@@ -1,6 +1,10 @@
 package com.techelevator;
 
+import org.w3c.dom.DOMStringList;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Exercises {
@@ -16,7 +20,8 @@ public class Exercises {
 	 array2List( {"Left", "Right", "Forward", "Back"} )  ->  ["Left", "Right", "Forward", "Back"]
 	 */
 	public List<String> array2List(String[] stringArray) {
-		return null;
+
+		return Arrays.asList(stringArray);
 	}
 
 	/*
@@ -26,7 +31,8 @@ public class Exercises {
 	 list2Array( ["Left", "Right", "Forward", "Back"] )  ->  {"Left", "Right", "Forward", "Back"}
 	 */
 	public String[] list2Array(List<String> stringList) {
-		return null;
+
+		return stringList.toArray(new String [0]);
 	}
 
 	/*
@@ -37,7 +43,14 @@ public class Exercises {
 	 no4LetterWords( {"Jack", "Jill", "Jane", "John", "Jim"} )  ->  ["Jim"]
 	 */
 	public List<String> no4LetterWords(String[] stringArray) {
-		return null;
+
+		List<String> no4 = new ArrayList<String>();
+		for (String word: stringArray) {
+			if(word.length() != 4) {
+				no4.add(word);
+			}
+		}
+		return no4;
 	}
 
 	/*
@@ -47,7 +60,11 @@ public class Exercises {
 	 arrayInt2ListDouble( {84, 99, 3285, 13, 877} ) -> [42, 49.5, 1642.5, 6.5, 438.5]
 	 */
 	public List<Double> arrayInt2ListDouble(int[] intArray) {
-		return null;
+		List<Double> result = new ArrayList<Double>();
+		for (double num: intArray) {
+			result.add(num / 2);
+		}
+		return result;
 	}
 
 	/*
