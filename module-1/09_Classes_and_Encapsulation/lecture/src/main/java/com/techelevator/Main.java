@@ -7,7 +7,9 @@ public class Main {
         // Create a new class, initializing the first name
         // and last name through the constructor
         Person christopher = new Person("Christopher", "Guarnera");
-        christopher.introduceSelf();
+      //  christopher.introduceSelf();
+
+        System.out.println(christopher.firstName);
 
 
     }
