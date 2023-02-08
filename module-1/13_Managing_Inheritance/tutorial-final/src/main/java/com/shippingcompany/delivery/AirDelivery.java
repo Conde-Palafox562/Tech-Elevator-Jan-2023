@@ -6,6 +6,7 @@ public class AirDelivery extends Delivery {
 
     @Override
     public int getDuration() {
+
         return ONE_DAY_IN_MINUTES;
     }
 
