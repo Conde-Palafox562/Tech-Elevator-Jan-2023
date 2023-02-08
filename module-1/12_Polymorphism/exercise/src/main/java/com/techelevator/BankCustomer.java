@@ -46,8 +46,8 @@ public class BankCustomer {
 
         int total = 0;
 
-        for (int i = 0; i < accounts.size(); i++) {
-            total += accounts.get(i).getBalance();
+        for (Accountable account : accounts) {
+            total += account.getBalance();
 
         }if (total >= 25000) {
             return true;
