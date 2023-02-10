@@ -13,10 +13,12 @@ public class ShoppingCart {
 	private double taxRate;
 
 	public ShoppingCart(double taxRate) {
+
 		this.taxRate = taxRate;
 	}
 	public void add(Purchasable itemToAdd) {
-	    itemsToBuy.add(itemToAdd);
+
+		itemsToBuy.add(itemToAdd);
 	}
 
 	public double getSubtotalPrice() {

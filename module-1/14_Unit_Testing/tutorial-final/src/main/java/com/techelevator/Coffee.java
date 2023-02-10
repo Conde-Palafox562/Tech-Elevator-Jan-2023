@@ -12,40 +12,49 @@ public class Coffee implements Purchasable {
     private double price;
 
     public String getSize() {
+
         return size;
     }
 
     public void setSize(String size) {
+
         this.size = size;
     }
 
     public String getBlend() {
+
         return blend;
     }
 
     public void setBlend(String blend) {
+
         this.blend = blend;
     }
 
     @Override
     public double getPrice() {
+
         return price;
     }
 
     @Override
     public boolean isTaxable() {
+
         return false;
     }
 
     public void setPrice(double price) {
+
         this.price = price;
     }
 
     public String[] getAdditions() {
+
         return additions.toArray(new String[0]);
     }
 
     public void add(String addition) {
+
         additions.add(addition);
     }
 
