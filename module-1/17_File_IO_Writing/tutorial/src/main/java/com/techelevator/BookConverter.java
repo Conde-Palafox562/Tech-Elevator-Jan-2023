@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.PrintWriter;
 import java.time.DateTimeException;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class BookConverter {
@@ -36,15 +37,22 @@ public class BookConverter {
         /*
         Step 2: Open a file for writing the converted text into it
          */
-        try (Scanner fileInput = new Scanner(bookFile)) {
+
+        // Create a File object for the output file
+        File convertedFile = getConvertedFile(bookFile);
+
+        //Open both the input and output files.
+        try (Scanner fileInput = new Scanner(bookFile);
+        PrintWriter writer = new PrintWriter(convertedFile)) {
+
             // Loop until the end of file is reached
             while (fileInput.hasNextLine()) {
                 // Read the next line into 'lineOfText'
                 String lineOfText = fileInput.nextLine();
                 lineCount++;
 
-                // Print the file to the user
-                System.out.println(lineOfText);
+                // Write the text in uppercase to the output file.
+                writer.println(lineOfText.toUpperCase());
             }
         } catch (FileNotFoundException e) {
             // Could not find the file at the specified path.
@@ -53,8 +61,10 @@ public class BookConverter {
         }
 
         // Tell the user what happened.
-        String message = "Displayed " + lineCount +
-                " lines of file " + bookFile.getName();
+        String message = "Converted " + lineCount +
+                " lines of file " + bookFile.getName() +
+                " to " + convertedFile.getName() +
+                " on " + new Date();
         System.out.println(message);
 
         /*
@@ -64,6 +74,14 @@ public class BookConverter {
         contents will be preserved, and the lines written here will be appended to what was already there.
          */
 
+        String auditPath = "BookConverter.log";
+        File logFile = new File (auditPath);
+        // Using a FileOutputStream with true passed into the constructor opens the file for append.
+        try (PrintWriter log = new PrintWriter(new FileOutputStream(logFile, true))) {
+            log.println(message);
+        } catch (FileNotFoundException e) {
+            System.out.println("*** Unable to open log file: " + logFile.getAbsolutePath());
+        }
     }
 
     /**

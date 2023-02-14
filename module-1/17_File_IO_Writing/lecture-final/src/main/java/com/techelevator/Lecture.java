@@ -10,7 +10,9 @@ public class Lecture {
 
 	public static void main(String[] args) throws IOException {
 
+		// The scanner will grab the user input and run it through the system
 		Scanner userInput = new Scanner(System.in);
+
 
 		/*
 		 * The java.io.File class is a representation of file and directory path names.  It provides methods to inspect and
@@ -23,9 +25,11 @@ public class Lecture {
 
 		// The big takeaway from all this is that most of the file system operations
 		// that we do (checking how large a file is, creating a new file,
-		// checking if it's a directory, etc.) we can do programmtically in java
+		// checking if it's a directory, etc.) we can do programmatically in java
 
 		System.out.println("Please enter the file name:");
+
+		//This is reading from the console and getting the file itself.
 		String fileName = userInput.nextLine();
 
 		File file = new File(fileName);
