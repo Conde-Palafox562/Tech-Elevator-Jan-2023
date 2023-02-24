@@ -1,3 +1,10 @@
+SELECT title, genre_name
+FROM movie_genre
+JOIN movie
+     ON movie_genre.movie_id = movie.movie_id
+JOIN genre
+     ON movie_genre.genre_id = genre.genre_id;
+
 -- INNER JOIN - results will only be included in the output if a corresponding record eists on each table we join to
 
 -- Write a query to retrieve the name and state abbreviation for the 2 cities named "Columbus" in the database
@@ -89,7 +96,8 @@ ORDER BY num_cities DESC; -- this runs seventh
 
 -- LEFT JOIN
 
--- Write a query to retrieve the state name and the earliest date a park was established in that state (or territory) for every record in the state table that has park records associated with it.
+-- Write a query to retrieve the state name and the earliest date a park was established in that state (or territory) 
+-- for every record in the state table that has park records associated with it.
 SELECT state_name, MIN(date_established)
 FROM state
 JOIN park_state
@@ -98,9 +106,10 @@ JOIN park
 	ON park_state.park_id = park.park_id
 GROUP BY state_name;
 
--- Modify the previous query so the results include entries for all the records in the state table, even if they have no park records associated with them.
+-- Modify the previous query so the results include entries for all the records in the state table, 
+-- even if they have no park records associated with them.
 SELECT state_name, MIN(date_established)
-FROM state -- LEFT JOIN means that regardless if we find any corresponding records, still keep the data from the table we started with
+FROM state -- LEFT JOIN means that regardless if we find any corresponding records, still keep the data from the table we started with.
 LEFT JOIN park_state
 	ON state.state_abbreviation = park_state.state_abbreviation
 LEFT JOIN park
@@ -110,7 +119,8 @@ GROUP BY state_name;
 
 -- UNION
 
--- Write a query to retrieve all the place names in the city and state tables that begin with "W" sorted alphabetically. (Washington is the name of a city and a state--how many times does it appear in the results?)
+-- Write a query to retrieve all the place names in the city and state tables that begin with "W" sorted alphabetically. 
+-- (Washington is the name of a city and a state--how many times does it appear in the results?)
 SELECT city_name AS place_name
 FROM city
 WHERE city_name LIKE 'W%'
@@ -130,7 +140,8 @@ WHERE state_name LIKE 'W%';
 
 
 -- MovieDB
--- After creating the MovieDB database and running the setup script, make sure it is selected in pgAdmin and confirm it is working correctly by writing queries to retrieve...
+-- After creating the MovieDB database and running the setup script, 
+-- make sure it is selected in pgAdmin and confirm it is working correctly by writing queries to retrieve...
 
 -- The names of all the movie genres
 
