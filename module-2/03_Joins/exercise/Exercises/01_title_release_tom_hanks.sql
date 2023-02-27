@@ -5,8 +5,14 @@
 SELECT title, release_date
 FROM movie
 JOIN movie_actor
+<<<<<<< HEAD
      ON movie.movie_id = movie_actor.movie_id
 JOIN person
      on movie_actor.actor_id = person.person_id
+=======
+	ON movie.movie_id = movie_actor.movie_id
+JOIN person
+	ON movie_actor.actor_id = person.person_id
+>>>>>>> f61af9e64c3cb3e6dbb092a3b2b3adae2037a33e
 WHERE person_name = 'Tom Hanks'
 ORDER BY release_date DESC;
