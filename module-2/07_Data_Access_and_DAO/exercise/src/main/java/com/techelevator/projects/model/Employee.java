@@ -49,9 +49,7 @@ public class Employee {
 	public LocalDate getBirthDate() {
 		return birthDate;
 	}
-	public void setBirthDate(LocalDate birthDate) {
-		this.birthDate = birthDate;
-	}
+	public void setBirthDate(LocalDate birthDate) { this.birthDate = birthDate; }
 	public LocalDate getHireDate() {
 		return hireDate;
 	}
