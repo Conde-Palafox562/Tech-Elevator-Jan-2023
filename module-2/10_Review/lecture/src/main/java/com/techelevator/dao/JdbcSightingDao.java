@@ -9,8 +9,8 @@ public class JdbcSightingDao implements SightingDao {
     private final JdbcTemplate jdbcTemplate;
 
     public JdbcSightingDao(DataSource dataSource) {
+
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
-
 
 }
