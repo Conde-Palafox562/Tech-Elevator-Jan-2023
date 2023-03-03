@@ -21,8 +21,18 @@ SELECT park_id, 'CA'
 FROM park
 WHERE park_name = 'Disneyland';
 
+
 SELECT *
 FROM park_state;
+
+SELECT * 
+FROM park;
+
+SELECT *
+FROM park_state
+JOIN park
+     ON park_state.park_id = park.park_id
+WHERE park_name = 'Disneyland' AND state_abbreviation = 'CA';
 
 -- If we want to get the ID from the row we just created, we can use a keyword called RETURNING
 -- RETURNING is like a SELECT statement on the row you just inserted
@@ -58,6 +68,9 @@ SET capital = (
 	)
 WHERE state_abbreviation = 'CA';
 
+SELECT *
+FROM city;
+
 -- Change California's nickname back to "The Golden State", reduce the population by 1,000,000, and change the capital back to Sacramento.
 UPDATE state
 SET state_nickname = 'The Golden State',
@@ -67,6 +80,10 @@ SET state_nickname = 'The Golden State',
 		FROM city
 		WHERE city_name = 'Sacramento'
 	)
+WHERE state_abbreviation = 'CA';
+
+SELECT *
+FROM state
 WHERE state_abbreviation = 'CA';
 
 

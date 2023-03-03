@@ -25,7 +25,16 @@ public class JdbcParkDaoTests extends BaseDaoTests {
 
     @Test
     public void getPark_returns_correct_park_for_id() {
-        Assert.fail();
+
+        // Arrange - done in the setup and constants
+
+        // Act - I call the method that I want to test and store the result
+
+        Park result = sut.getPark(1);
+
+        // Assert - I can make sure that the result is what I expect
+
+
     }
 
     @Test
