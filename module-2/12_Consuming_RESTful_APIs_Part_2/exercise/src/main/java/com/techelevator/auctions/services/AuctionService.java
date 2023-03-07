@@ -17,18 +17,64 @@ public class AuctionService {
 
 
     public Auction add(Auction newAuction) {
-        // place code here
-        return null;
+
+        String path = API_BASE_URL;
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        HttpEntity<Auction> request = new HttpEntity<>(newAuction, headers);
+
+        Auction returnedAuction = null;
+
+        try {
+            returnedAuction = restTemplate.postForObject(path, request, Auction.class);
+        } catch (RestClientResponseException ex) {
+            BasicLogger.log("Error:" + ex.getRawStatusCode() + " - " + ex.getStatusText());
+        } catch (ResourceAccessException ex) {
+            BasicLogger.log(ex.getMessage());
+        }
+
+        return returnedAuction;
     }
 
     public boolean update(Auction updatedAuction) {
-        // place code here
-        return false;
+
+        boolean successful = false;
+
+        String path = API_BASE_URL + updatedAuction.getId();
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        HttpEntity<Auction> request = new HttpEntity<>(updatedAuction, headers);
+
+        try {
+            restTemplate.put(path, request);
+            successful = true;
+        } catch (RestClientResponseException ex) {
+            BasicLogger.log("Error:" + ex.getRawStatusCode() + " - " + ex.getStatusText());
+        } catch (ResourceAccessException ex) {
+            BasicLogger.log(ex.getMessage());
+        }
+        return successful;
     }
 
     public boolean delete(int auctionId) {
-        // place code here
-        return false;
+
+        boolean successful = false;
+
+        try {
+            String path = API_BASE_URL + auctionId;
+            restTemplate.delete(path);
+            successful = true;
+        } catch (RestClientResponseException ex) {
+            BasicLogger.log("Error:" + ex.getRawStatusCode() + " - " + ex.getStatusText());
+        } catch (ResourceAccessException ex) {
+            BasicLogger.log(ex.getMessage());
+        }
+
+        return successful;
     }
 
     public Auction[] getAllAuctions() {
