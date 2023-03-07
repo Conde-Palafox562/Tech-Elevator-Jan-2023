@@ -3,9 +3,14 @@ package com.techelevator.hotels.services;
 import com.techelevator.hotels.model.Hotel;
 import com.techelevator.hotels.model.Reservation;
 import com.techelevator.util.BasicLogger;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.MediaType;
+import org.springframework.http.server.reactive.HttpHandler;
 import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestClientResponseException;
 import org.springframework.web.client.RestTemplate;
+
+import java.net.http.HttpHeaders;
 
 
 public class HotelService {
@@ -18,7 +23,29 @@ public class HotelService {
      */
     public Reservation addReservation(Reservation newReservation) {
         // TODO: Implement method
-        return null;
+
+        String path = API_BASE_URL + "reservations";
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        HttpEntity<Reservation> request = new HttpEntity<>(newReservation, headers);
+
+        Reservation returnedReservation = null;
+
+        try {
+            Reservation returnedReservation = restTemplate.postForObject(path, request, Reservation.class);
+        } catch (RestClientResponseException ex) {
+            //RestClientResponseException means that we found the server, but something went wrong, and the server
+            // is sending us back a status code and message that we can use
+            BasicLogger.log("Error:" + ex.getRawStatusCode() + " - " + ex.getStatusText());
+        } catch (ResourceAccessException ex) {
+            //ResourceAccessException means that we could not find the server or something we were asking for from the server
+            BasicLogger.log(ex.getMessage());
+        }
+
+
+        return returnedReservation;
     }
 
     /**
@@ -26,16 +53,54 @@ public class HotelService {
      * reservation
      */
     public boolean updateReservation(Reservation updatedReservation) {
-        // TODO: Implement method
-        return false;
+
+        boolean successful = false;
+        String path = API_BASE_URL + "reservations/" + updatedReservation.getId();
+
+        //declare our headers that we are sending JSON
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        HttpEntity<Reservation> request = new HttpEntity<>(updatedReservation, headers);
+
+        try {
+        restTemplate.put(path, request);
+        successful = true;
+
+        } catch (RestClientResponseException ex) {
+            //RestClientResponseException means that we found the server, but something went wrong, and the server
+            // is sending us back a status code and message that we can use
+            BasicLogger.log("Error:" + ex.getRawStatusCode() + " - " + ex.getStatusText());
+        } catch (ResourceAccessException ex) {
+            //ResourceAccessException means that we could not find the server or something we were asking for from the server
+            BasicLogger.log(ex.getMessage());
+        }
+
+        return successful;
     }
 
     /**
      * Delete an existing reservation
      */
     public boolean deleteReservation(int id) {
-        // TODO: Implement method
-        return false;
+
+        boolean successful = false;
+
+        try {
+        String path = API_BASE_URL + "reservations/" + id;
+        restTemplate.delete(path);
+        successful = true;
+
+        } catch (RestClientResponseException ex) {
+            //RestClientResponseException means that we found the server, but something went wrong, and the server
+            // is sending us back a status code and message that we can use
+            BasicLogger.log("Error:" + ex.getRawStatusCode() + " - " + ex.getStatusText());
+        } catch (ResourceAccessException ex) {
+            //ResourceAccessException means that we could not find the server or something we were asking for from the server
+            BasicLogger.log(ex.getMessage());
+        }
+
+        return successful;
     }
 
     /* DON'T MODIFY ANY METHODS BELOW */
