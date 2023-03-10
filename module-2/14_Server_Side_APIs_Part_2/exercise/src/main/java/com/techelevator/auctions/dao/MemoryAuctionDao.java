@@ -160,6 +160,7 @@ public class MemoryAuctionDao implements AuctionDao {
      * @return
      */
     private int getMaxIdPlusOne() {
+
         return getMaxId() + 1;
     }
 
