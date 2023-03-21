@@ -16,26 +16,26 @@ ul {
   padding: 0;
 }
 
-aside{
+aside {
   position:fixed;
   border-right:rgba(0, 173, 238, 0.4) 1px solid;
   height: 100%;
   width: 200px;
 }
 
- aside img{
-height: 120px;
-margin: auto;
-display: block;
+aside img {
+  height: 120px;
+  margin: auto;
+  display: block;
 }
 
-main{
-margin-left: 200px;
-padding-left: 20px;
-padding-right: 20px;
+main {
+  margin-left: 200px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
-li{
+li {
   text-align: center;
   text-transform: uppercase;
   font-weight: bold;
@@ -46,16 +46,16 @@ li{
   list-style: none;
 }
 
-li:first-child{
+li:first-child {
   text-decoration: underline;
 }
 
-a{
+a {
   color: #00adee;
   text-decoration: none;
 }
 
-aside{
+aside {
   position:fixed;
   border-right: rgba(0, 173, 238, 0.4) solid 1px;
   height: 100%;
@@ -63,7 +63,7 @@ aside{
   margin: center;
 }
 
-header > img{
+header > img {
   height: 100px;
   margin-bottom: 1px;
   margin-left: 20px;
@@ -71,19 +71,19 @@ header > img{
   padding: 1%;
 }
 
-.banner{
+.banner {
   display: block;
   width: 100%;
 }
 
-div#what-we-do{
+div#what-we-do {
   display: inline-block;
   width: 33%;
   padding: 2%;
   border-right: 1px solid rgba(170, 239, 135, 0.8);
 }
 
-div#our-work{
+div#our-work {
 
   display:inline-block;
   width: 33%;
@@ -91,32 +91,32 @@ div#our-work{
   border-right: 1px solid rgba(170, 239, 135, 0.8);
 }
 
- div#contact-us{
-display: inline-block;
-width: 32%;
-padding-left: 20px; 
- }
+div#contact-us {
+  display: inline-block;
+  width: 32%;
+  padding-left: 20px; 
+}
 
- h2{
+h2 {
   display: inline-block;
   color: #8CC36F;
   margin-top: 30px;
   margin-left: 20px;
   margin-right: 20px;
- }
+}
 
- section h2 i {
-   margin-right: 10px
- }
+section h2 i {
+  margin-right: 10px
+}
 
- section{
-   padding: 1%;
- }
+section {
+  padding: 1%;
+}
  
- section div{
-   display: inline-block;
-   width: 33%;
-   padding-right: 20px; 
-   margin-top: 10px;
-   vertical-align: top;
- }
+section div {
+  display: inline-block;
+  width: 33%;
+  padding-right: 20px; 
+  margin-top: 10px;
+  vertical-align: top;
+}
