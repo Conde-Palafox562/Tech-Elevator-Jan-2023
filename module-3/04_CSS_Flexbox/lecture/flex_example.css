@@ -1,6 +1,12 @@
 body{
     width:95vw;
-    height: 95vh;    
+    height: 95vh;
+
+    display: flex; 
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap-reverse;  
 }
 
 
@@ -9,10 +15,13 @@ div {
     height:100px;
     text-align:center;
     font-size: 50px;
+    /*flex-grow: 1;*/
+    /*flex-shrink: 1;*/
 }
 
 #div1 {
     background-color: blue;
+   /* flex-grow: 1.5;*/
 }
 
 #div2 {
