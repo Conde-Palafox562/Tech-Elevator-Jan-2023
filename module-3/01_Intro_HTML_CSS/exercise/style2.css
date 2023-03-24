@@ -1,0 +1,22 @@
+body{
+    
+    background-image: url(https://wallpaperaccess.com/full/387106.jpg);
+    background-size: cover;
+   background-attachment: scroll;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left; 
+}
+
+form{
+
+    background-color: lightseagreen;
+    color: white;
+    padding: 10px;  
+
+   
+   }
+   header{
+       padding: 10px;
+       color: white;
+   }
