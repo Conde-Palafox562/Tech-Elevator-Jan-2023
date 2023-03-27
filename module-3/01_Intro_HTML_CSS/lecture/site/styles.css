@@ -29,3 +29,7 @@ body {
 td {
     font-size: 15px;
 }
+
+form div label {
+    color: blue;
+}
