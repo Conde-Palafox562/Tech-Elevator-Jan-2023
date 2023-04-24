@@ -7,5 +7,3 @@ Module 1
 Module 2
 
 Module 3
-
-Final Capstone Review (Capstone 3)
